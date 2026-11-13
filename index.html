@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src https://bjzkdimvrqxcyspxlpvm.supabase.co; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+<meta name="theme-color" content="#13233f">
+<title>הוראות הרבצ"ר – לומדים ומתחרים</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#13233f;--navy2:#1d3461;--gold:#c9a227;--gold2:#f3e3a3;--bg:#f4f2ec;--card:#fff;--ink:#1b1f29;--mute:#6b7280;--ok:#1f8a4c;--okbg:#e3f4ea;--bad:#c0392b;--badbg:#fbe7e4;--line:#e5e1d6;--r:14px}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Heebo,system-ui,sans-serif;font-size:16px}
+button,input,select{font-family:inherit;font-size:1rem}
+header.top{background:var(--navy);color:#fff;padding:12px 16px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:5}
+header.top .logo{width:34px;height:34px;border-radius:9px;background:var(--gold);color:var(--navy);display:grid;place-items:center;font-weight:800}
+header.top h1{font-size:1.05rem;margin:0;flex:1;font-weight:700}
+header.top .pts{background:rgba(255,255,255,.12);border-radius:20px;padding:4px 10px;font-size:.85rem}
+.back{background:none;border:0;color:#fff;font-size:1.4rem;padding:0 4px;cursor:pointer}
+main{max-width:720px;margin:0 auto;padding:16px 14px 90px}
+.card{background:var(--card);border-radius:var(--r);padding:16px;box-shadow:0 1px 3px rgba(0,0,0,.06);margin-bottom:14px;border:1px solid var(--line)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:12px;padding:12px 18px;font-weight:700;cursor:pointer;background:var(--navy);color:#fff;transition:transform .08s}
+.btn:active{transform:scale(.97)}
+.btn.gold{background:var(--gold);color:var(--navy)}
+.btn.ghost{background:transparent;color:var(--navy);border:1.5px solid var(--navy)}
+.btn.red{background:var(--bad)}
+.btn.green{background:var(--ok)}
+.btn.sm{padding:7px 12px;font-size:.88rem;border-radius:9px}
+.btn.block{width:100%}
+.btn:disabled{opacity:.5}
+input[type=text],input[type=password],input[type=search],select{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;background:#fff;margin:6px 0 12px}
+input:focus,select:focus{outline:2px solid var(--gold);border-color:var(--gold)}
+label{font-weight:500;font-size:.92rem}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 12px;cursor:pointer;text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px;min-height:112px;justify-content:center}
+.tile:active{transform:scale(.98)}
+.tile .ic{font-size:1.9rem}
+.tile b{font-size:1rem}
+.tile small{color:var(--mute);font-size:.8rem}
+.tile.hero{grid-column:1/-1;background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;border:0}
+.tile.hero small{color:var(--gold2)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;text-align:center}
+.stats div{background:var(--bg);border-radius:10px;padding:8px 4px}
+.stats b{display:block;font-size:1.25rem;color:var(--navy)}
+.stats span{font-size:.75rem;color:var(--mute)}
+.lvl{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.lvl .badge{background:var(--gold);color:var(--navy);font-weight:800;border-radius:10px;padding:6px 10px;font-size:.9rem}
+.bar{height:8px;background:var(--line);border-radius:6px;overflow:hidden;flex:1}
+.bar i{display:block;height:100%;background:var(--gold);border-radius:6px;transition:width .4s}
+.muted{color:var(--mute)}
+.center{text-align:center}
+.row{display:flex;gap:10px;align-items:center}
+.row.wrap{flex-wrap:wrap}
+.sp{flex:1}
+h2{font-size:1.25rem;margin:4px 0 12px;color:var(--navy)}
+h3{font-size:1.05rem;margin:4px 0 8px;color:var(--navy)}
+.msg{padding:10px 12px;border-radius:10px;margin:8px 0;font-size:.95rem}
+.msg.err{background:var(--badbg);color:var(--bad)}
+.msg.ok{background:var(--okbg);color:var(--ok)}
+.part{margin-top:14px}
+.part>.ph{font-weight:800;color:var(--navy);padding:8px 2px;border-bottom:2px solid var(--gold);display:flex;align-items:center;gap:8px}
+.sub{font-size:.85rem;color:var(--mute);margin:10px 2px 4px;font-weight:500}
+.ch{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:6px 0;cursor:pointer}
+.ch.sel{border-color:var(--gold);background:#fffaf0;box-shadow:0 0 0 2px var(--gold2)}
+.ch.lock{opacity:.6;cursor:default;background:#f7f7f7}
+.ch .code{font-size:.75rem;color:var(--mute);direction:ltr;white-space:nowrap}
+.ch .t{flex:1;font-weight:500;font-size:.95rem;line-height:1.3}
+.ch .m{width:44px;font-size:.72rem;color:var(--mute);text-align:center}
+.ch .m .bar{height:5px;margin-top:3px}
+.chk{width:22px;height:22px;border-radius:6px;border:2px solid var(--line);display:grid;place-items:center;flex-shrink:0;font-size:.8rem}
+.ch.sel .chk{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.sticky-bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);padding:10px 14px;z-index:6}
+.sticky-bottom .in{max-width:720px;margin:0 auto;display:flex;gap:10px;align-items:center}
+.seg{display:flex;background:var(--bg);border-radius:12px;padding:4px;gap:4px;margin:6px 0 12px;flex-wrap:wrap}
+.seg button{flex:1;border:0;background:transparent;padding:9px 6px;border-radius:9px;font-weight:500;cursor:pointer;min-width:60px}
+.seg button.on{background:var(--navy);color:#fff}
+input[type=range]{width:100%;accent-color:var(--gold)}
+.big{font-size:2rem;font-weight:800;color:var(--navy)}
+.q-head{display:flex;align-items:center;gap:10px;margin-bottom:10px;font-size:.88rem;color:var(--mute)}
+.q-prompt{font-size:1.15rem;font-weight:700;line-height:1.5;margin:6px 0 16px}
+.q-chap{font-size:.78rem;background:var(--bg);display:inline-block;padding:3px 9px;border-radius:20px;color:var(--navy2)}
+.opt{display:block;width:100%;text-align:right;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:13px 14px;margin:8px 0;cursor:pointer;font-size:1rem;line-height:1.4;color:var(--ink)}
+.opt:not(:disabled):active{background:var(--bg)}
+.opt.right{background:var(--okbg);border-color:var(--ok);color:var(--ok);font-weight:700}
+.opt.wrong{background:var(--badbg);border-color:var(--bad);color:var(--bad)}
+.opt.picked{border-color:var(--navy);background:#eef2fa}
+.expl{background:#fffaf0;border-right:4px solid var(--gold);padding:10px 12px;border-radius:8px;margin-top:10px;font-size:.95rem;line-height:1.5}
+.timer{height:10px;background:var(--line);border-radius:6px;overflow:hidden;margin-bottom:12px}
+.timer i{display:block;height:100%;background:var(--ok);transition:width .25s linear}
+.timer.warn i{background:var(--bad)}
+table.lb{width:100%;border-collapse:collapse;font-size:.92rem}
+table.lb th{font-size:.78rem;color:var(--mute);font-weight:500;text-align:right;padding:6px 4px;border-bottom:1px solid var(--line)}
+table.lb td{padding:9px 4px;border-bottom:1px solid var(--line)}
+table.lb tr.me td{background:#fffaf0;font-weight:700}
+.rk{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-weight:800;background:var(--bg);font-size:.85rem}
+.rk.g1{background:#f5d76e}.rk.g2{background:#d9dde3}.rk.g3{background:#e8b98a}
+.reader{white-space:pre-wrap;line-height:1.85;font-size:1rem}
+.reader mark{background:var(--gold2)}
+.flash{perspective:1000px;height:300px;margin:10px 0 16px;cursor:pointer}
+.flash .in{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flash.flip .in{transform:rotateY(180deg)}
+.flash .f,.flash .b{position:absolute;inset:0;backface-visibility:hidden;border-radius:18px;display:flex;align-items:center;justify-content:center;padding:22px;text-align:center;line-height:1.6;overflow:auto}
+.flash .f{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;font-size:1.25rem;font-weight:700}
+.flash .b{background:#fff;border:2px solid var(--gold);transform:rotateY(180deg);font-size:1.02rem}
+.vs{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center;text-align:center}
+.vs .p{background:var(--bg);border-radius:12px;padding:10px}
+.vs .p.me{background:#fffaf0;border:1.5px solid var(--gold)}
+.vs b{display:block;font-size:1.6rem;color:var(--navy)}
+.vs .x{font-weight:800;color:var(--gold);font-size:1.3rem}
+.code-big{font-size:2.6rem;letter-spacing:.35rem;font-weight:800;direction:ltr;text-align:center;color:var(--navy);background:var(--bg);border-radius:14px;padding:10px;margin:10px 0}
+.pill{display:inline-block;font-size:.75rem;padding:3px 9px;border-radius:20px;background:var(--bg)}
+.pill.pending{background:#fff4d6;color:#8a6200}.pill.approved{background:var(--okbg);color:var(--ok)}.pill.blocked{background:var(--badbg);color:var(--bad)}
+.urow{border-bottom:1px solid var(--line);padding:10px 0}
+.dot{width:9px;height:9px;border-radius:50%;background:#bbb;display:inline-block}
+.dot.on{background:var(--ok)}
+.toast{position:fixed;bottom:84px;left:50%;transform:translateX(-50%);background:var(--navy);color:#fff;padding:10px 18px;border-radius:12px;z-index:20;font-size:.95rem;box-shadow:0 4px 14px rgba(0,0,0,.2)}
+.loginwrap{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:24px 16px;max-width:420px;margin:0 auto}
+.brand{text-align:center;margin-bottom:22px}
+.brand .lg{width:70px;height:70px;border-radius:20px;background:var(--navy);color:var(--gold);display:grid;place-items:center;font-size:2rem;font-weight:800;margin:0 auto 10px}
+.brand h1{margin:0;color:var(--navy);font-size:1.5rem}
+.review{border-bottom:1px solid var(--line);padding:12px 0}
+.review .ok{color:var(--ok);font-weight:700}.review .no{color:var(--bad);font-weight:700}
+.empty{text-align:center;color:var(--mute);padding:30px 10px}
+.spin{width:28px;height:28px;border:3px solid var(--line);border-top-color:var(--gold);border-radius:50%;animation:s 0.8s linear infinite;margin:30px auto}
+@keyframes s{to{transform:rotate(360deg)}}
+.combo{color:var(--gold);font-weight:800}
+.streak{font-size:.85rem}
+@media(max-width:380px){.stats{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+'use strict';
+const API='https://bjzkdimvrqxcyspxlpvm.supabase.co/rest/v1/rpc/';
+const KEY='sb_publishable_NC365RNwn9pebPEAlAceKw_6wPUtQbC';
+const LEVELS=[[0,'טירון'],[150,'לומד'],[500,'בקיא'],[1200,'מומחה'],[2500,'מומחה בכיר'],[5000,'פוסק'],[9000,'גאון ההוראות']];
+const S={token:null,user:null,chapters:null,stats:null,timers:[]};
+try{S.token=localStorage.getItem('rbz_tok');S.user=JSON.parse(localStorage.getItem('rbz_user')||'null')}catch(e){}
+
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function toast(t,ms=2200){const d=document.createElement('div');d.className='toast';d.textContent=t;document.body.appendChild(d);setTimeout(()=>d.remove(),ms)}
+function clearTimers(){S.timers.forEach(t=>{clearInterval(t);clearTimeout(t)});S.timers=[]}
+
+async function rpc(fn,args={},silent){
+  let r;
+  try{r=await fetch(API+fn,{method:'POST',headers:{'apikey':KEY,'Content-Type':'application/json'},body:JSON.stringify(args)})}
+  catch(e){if(!silent)toast('בעיית תקשורת – בדוק חיבור לאינטרנט');throw e}
+  const txt=await r.text();let data=null;try{data=txt?JSON.parse(txt):null}catch(e){data=txt}
+  if(!r.ok){
+    const m=(data&&data.message)||'';
+    if(m==='AUTH'){logoutLocal();toast('החיבור פג – התחבר מחדש');throw new Error('AUTH')}
+    if(!silent)toast(m==='FORBIDDEN'?'אין הרשאה':'שגיאה: '+m);
+    throw new Error(m);
+  }
+  return data;
+}
+const T=(fn,a={},s)=>rpc(fn,Object.assign({p_token:S.token},a),s);
+
+function logoutLocal(){S.token=null;S.user=null;S.chapters=null;try{localStorage.removeItem('rbz_tok');localStorage.removeItem('rbz_user')}catch(e){}clearTimers();viewLogin()}
+function level(p){let i=0;for(let k=0;k<LEVELS.length;k++)if(p>=LEVELS[k][0])i=k;const cur=LEVELS[i],nx=LEVELS[i+1];return{name:cur[1],next:nx?nx[1]:null,pct:nx?Math.round(100*(p-cur[0])/(nx[0]-cur[0])):100,need:nx?nx[0]-p:0}}
+
+function shell(title,html,{back=null,bottom=''}={}){
+  clearTimers();
+  $('#app').innerHTML=`<header class="top">${back?'<button class="back" id="bk" aria-label="חזרה">→</button>':'<div class="logo">ר</div>'}<h1>${esc(title)}</h1>${S.stats?`<span class="pts">⭐ ${S.stats.points}</span>`:''}</header><main>${html}</main>${bottom}`;
+  if(back){$('#bk').onclick=back}
+  window.scrollTo(0,0);
+}
+
+/* ---------- AUTH ---------- */
+function viewLogin(msg){
+  clearTimers();
+  $('#app').innerHTML=`<div class="loginwrap"><div class="brand"><div class="lg">ר</div><h1>הוראות הרבצ"ר</h1><div class="muted">לומדים · מתרגלים · מתחרים</div></div>
+  <div class="card"><div class="seg" id="tabs"><button class="on" data-t="in">התחברות</button><button data-t="up">הרשמה</button></div><div id="form"></div></div>
+  <p class="muted center" style="font-size:.8rem">הכניסה למשתמשים מאושרים בלבד. משתמש חדש נרשם וממתין לאישור המנהל.</p></div>`;
+  const tabs=$('#tabs');tabs.onclick=e=>{const b=e.target.closest('button');if(!b)return;tabs.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));b.dataset.t==='in'?fIn():fUp()};
+  function fIn(m){
+    $('#form').innerHTML=`${m?`<div class="msg ${m.ok?'ok':'err'}">${esc(m.t)}</div>`:''}<label>שם משתמש</label><input type="text" id="u" autocomplete="username" dir="ltr" autocapitalize="off"><label>סיסמה</label><input type="password" id="p" autocomplete="current-password" dir="ltr"><button class="btn gold block" id="go">כניסה</button>`;
+    const go=async()=>{const b=$('#go');b.disabled=true;try{const r=await rpc('login',{p_username:$('#u').value.trim(),p_password:$('#p').value});
+      if(!r.ok){fIn({t:r.msg});return}
+      S.token=r.token;S.user=r.user;try{localStorage.setItem('rbz_tok',r.token);localStorage.setItem('rbz_user',JSON.stringify(r.user))}catch(e){}
+      home();}catch(e){b.disabled=false}};
+    $('#go').onclick=go;$('#p').onkeydown=e=>{if(e.key==='Enter')go()};
+  }
+  function fUp(m){
+    $('#form').innerHTML=`${m?`<div class="msg err">${esc(m)}</div>`:''}<label>שם מלא (יוצג בטבלת הדירוג)</label><input type="text" id="n" maxlength="40"><label>יחידה / תפקיד (לא חובה)</label><input type="text" id="un" maxlength="40"><label>שם משתמש (באנגלית)</label><input type="text" id="u" dir="ltr" autocapitalize="off" maxlength="30"><label>סיסמה (לפחות 8 תווים)</label><input type="password" id="p" dir="ltr" autocomplete="new-password"><label>אימות סיסמה</label><input type="password" id="p2" dir="ltr" autocomplete="new-password"><button class="btn gold block" id="go">שליחת בקשת הרשמה</button>`;
+    $('#go').onclick=async()=>{if($('#p').value!==$('#p2').value){fUp('הסיסמאות אינן תואמות');return}
+      const b=$('#go');b.disabled=true;
+      try{const r=await rpc('register',{p_username:$('#u').value.trim(),p_password:$('#p').value,p_display:$('#n').value,p_unit:$('#un').value});
+        if(!r.ok){fUp(r.msg);return}tabs.querySelectorAll('button').forEach((x,i)=>x.classList.toggle('on',i===0));fIn({ok:true,t:r.msg})}catch(e){b.disabled=false}};
+  }
+  fIn(msg);
+}
+
+/* ---------- HOME ---------- */
+async function loadStats(){try{S.stats=await T('my_stats',{},true)}catch(e){}}
+async function loadChapters(force){if(!S.chapters||force)S.chapters=await T('chapters_list');return S.chapters}
+function streakDays(days){if(!days||!days.length)return 0;const d0=new Date();const fmt=d=>d.toISOString().slice(0,10);let n=0;let cur=new Date(fmt(d0));const set=new Set(days);
+  if(!set.has(fmt(cur))){cur.setDate(cur.getDate()-1);if(!set.has(fmt(cur)))return 0}
+  while(set.has(fmt(cur))){n++;cur.setDate(cur.getDate()-1)}return n}
+
+async function home(){
+  shell('הוראות הרבצ"ר','<div class="spin"></div>');
+  await loadStats();
+  const st=S.stats||{points:0,answered:0,correct:0,games:0,mistakes_open:0};
+  const lv=level(st.points);const acc=st.answered?Math.round(100*st.correct/st.answered):0;const streak=streakDays(st.days);
+  let inv=[];try{inv=await T('duel_invites',{},true)}catch(e){}
+  shell('הוראות הרבצ"ר',`
+  <div class="card"><div class="row"><div><div class="muted" style="font-size:.85rem">שלום,</div><h2 style="margin:0">${esc(S.user.name)}</h2></div><div class="sp"></div>${streak?`<span class="streak">🔥 ${streak} ימים ברצף</span>`:''}</div>
+  <div class="lvl" style="margin-top:12px"><span class="badge">${lv.name}</span><div class="bar"><i style="width:${lv.pct}%"></i></div></div>
+  <div class="muted" style="font-size:.78rem;margin:-6px 0 10px">${lv.next?`עוד ${lv.need} נקודות לדרגת "${lv.next}"`:'הגעת לדרגה הגבוהה ביותר!'}</div>
+  <div class="stats"><div><b>${st.points}</b><span>נקודות</span></div><div><b>${st.rank?'#'+st.rank:'-'}</b><span>דירוג</span></div><div><b>${acc}%</b><span>דיוק</span></div><div><b>${st.duels_won||0}</b><span>ניצחונות</span></div></div></div>
+  ${inv.map(i=>`<div class="card" style="border-color:var(--gold);background:#fffaf0"><b>⚔️ ${esc(i.from)} מזמין אותך לדו-קרב!</b><div class="muted" style="font-size:.85rem">${i.n} שאלות · ${i.seconds} שניות לשאלה${i.chapters?' · '+esc(i.chapters):''}</div><button class="btn gold sm" style="margin-top:8px" data-join="${esc(i.code)}">קבל אתגר</button></div>`).join('')}
+  <div class="grid">
+    <div class="tile hero" data-go="quick"><div class="ic">🎯</div><b>חידון מהיר</b><small>בחר נושא וכמות שאלות (1-25)</small></div>
+    <div class="tile" data-go="timed"><div class="ic">⏱️</div><b>נגד השעון</b><small>בונוס על מהירות</small></div>
+    <div class="tile" data-go="duel"><div class="ic">⚔️</div><b>דו-קרב</b><small>תחרות חיה מול חבר</small></div>
+    <div class="tile" data-go="library"><div class="ic">📖</div><b>ספריית ההוראות</b><small>חיפוש וקריאה לפי נושא</small></div>
+    <div class="tile" data-go="cards"><div class="ic">🃏</div><b>כרטיסיות שינון</b><small>מושגים ומספרים חשובים</small></div>
+    <div class="tile" data-go="mistakes"><div class="ic">🔁</div><b>תיקון טעויות</b><small>${st.mistakes_open?st.mistakes_open+' שאלות לחזרה':'אין טעויות פתוחות'}</small></div>
+    <div class="tile" data-go="exam"><div class="ic">📝</div><b>מבחן</b><small>תשובות רק בסוף</small></div>
+    <div class="tile" data-go="lb"><div class="ic">🏆</div><b>טבלת דירוג</b><small>כללי · פרק · הוראה</small></div>
+    <div class="tile" data-go="progress"><div class="ic">📊</div><b>ההתקדמות שלי</b><small>שליטה לפי נושאים</small></div>
+    ${S.user.admin?'<div class="tile" data-go="admin"><div class="ic">🛡️</div><b>ניהול</b><small>אישור משתמשים</small></div>':''}
+    <div class="tile" data-go="profile"><div class="ic">👤</div><b>הפרופיל שלי</b><small>סיסמה · יציאה</small></div>
+  </div>`);
+  document.querySelectorAll('[data-join]').forEach(b=>b.onclick=()=>joinDuel(b.dataset.join));
+  document.querySelectorAll('[data-go]').forEach(t=>t.onclick=()=>{const g=t.dataset.go;
+    ({quick:()=>pickTopics('practice'),timed:()=>pickTopics('timed'),exam:()=>pickTopics('exam'),mistakes:()=>quizSetup('mistakes',[]),duel:duelHome,library:()=>pickTopics('read'),cards:()=>pickTopics('cards'),lb:leaderboard,progress,admin,profile})[g]()});
+}
+
+/* ---------- TOPIC PICKER ---------- */
+const MODE_TITLES={practice:'חידון מהיר',timed:'נגד השעון',exam:'מבחן',read:'ספריית ההוראות',cards:'כרטיסיות שינון',duel:'בחירת נושא לדו-קרב',mistakes:'תיקון טעויות'};
+async function pickTopics(mode,onDone){
+  shell(MODE_TITLES[mode],'<div class="spin"></div>',{back:home});
+  const chs=await loadChapters();
+  const single=mode==='read';
+  const sel=new Set();
+  shell(MODE_TITLES[mode],`
+   <input type="search" id="q" placeholder="🔎 חיפוש לפי שם הוראה, מספר או פרק…">
+   ${single?'':'<div class="row" style="margin-bottom:6px"><button class="btn ghost sm" id="all">כל ההוראות</button><span class="muted" style="font-size:.85rem" id="cnt">לא נבחר נושא = כל ההוראות</span></div>'}
+   <div id="list"></div>`,{back:home,bottom:single?'':`<div class="sticky-bottom"><div class="in"><button class="btn gold block" id="next">המשך ←</button></div></div>`});
+  const draw=()=>{
+    const q=$('#q').value.trim();
+    const f=chs.filter(c=>!q||c.title.includes(q)||c.code.includes(q)||c.part_title.includes(q)||c.sub_title.includes(q));
+    let html='',lastP='',lastS='';
+    if(!f.length)html='<div class="empty">לא נמצאו הוראות תואמות</div>';
+    for(const c of f){
+      if(c.part_code!==lastP){html+=`${lastP?'</div>':''}<div class="part"><div class="ph">${esc(c.part_code)} | ${esc(c.part_title)}</div>`;lastP=c.part_code;lastS=''}
+      if(c.sub_code!==lastS){html+=`<div class="sub">${esc(c.sub_code)} · ${esc(c.sub_title)}</div>`;lastS=c.sub_code}
+      const pct=c.qcount?Math.round(100*c.mastered/c.qcount):0;
+      if(c.restricted){html+=`<div class="ch lock"><span>🔒</span><div class="t">${esc(c.title)}<div class="muted" style="font-size:.75rem">הוראה מסווגת – ללמידה דרך הרב היחידתי בערוצים המאושרים</div></div><span class="code">${esc(c.code)}</span></div>`;continue}
+      html+=`<div class="ch ${sel.has(c.code)?'sel':''}" data-c="${esc(c.code)}">${single?'<span>📄</span>':`<span class="chk">${sel.has(c.code)?'✓':''}</span>`}<div class="t">${esc(c.title)}</div><div class="m">${pct}%<div class="bar"><i style="width:${pct}%"></i></div></div><span class="code">${esc(c.code)}</span></div>`;
+    }
+    $('#list').innerHTML=html+(lastP?'</div>':'');
+    document.querySelectorAll('.ch[data-c]').forEach(el=>el.onclick=()=>{const c=el.dataset.c;
+      if(single){readChapter(c);return}
+      sel.has(c)?sel.delete(c):sel.add(c);draw();
+      $('#cnt').textContent=sel.size?`נבחרו ${sel.size} הוראות`:'לא נבחר נושא = כל ההוראות'});
+  };
+  $('#q').oninput=draw;draw();
+  if(!single){
+    $('#all').onclick=()=>{sel.clear();draw();$('#cnt').textContent='לא נבחר נושא = כל ההוראות'};
+    $('#next').onclick=()=>{const arr=[...sel];if(onDone)return onDone(arr);if(mode==='cards')return flashcards(arr);quizSetup(mode,arr)};
+  }
+}
+
+/* ---------- READER ---------- */
+async function readChapter(code){
+  shell('קריאת הוראה','<div class="spin"></div>',{back:()=>pickTopics('read')});
+  const c=await T('chapter_text',{p_code:code});
+  shell(c.title,`<div class="card"><div class="muted" style="font-size:.82rem">${esc(c.part_title)} › ${esc(c.sub_title)} · הוראה ${esc(c.code)} · עמ' ${c.page_from}-${c.page_to} בקובץ</div>
+   <div class="row wrap" style="margin:12px 0"><button class="btn gold sm" id="qz">🎯 חידון על ההוראה</button><button class="btn ghost sm" id="fc">🃏 כרטיסיות</button><input type="search" id="find" placeholder="חיפוש בטקסט" style="margin:0;flex:1;min-width:120px;padding:8px 12px"></div>
+   <div class="msg" style="background:var(--bg);font-size:.8rem">הטקסט חולץ מסריקה ממוחשבת ועלול להכיל שגיאות הקלדה. בכל ספק – המקור הוא ההוראה הרשמית.</div>
+   <div class="reader" id="rd"></div></div>`,{back:()=>pickTopics('read')});
+  const body=c.body||'';
+  const draw=q=>{if(!q){$('#rd').textContent=body;return}
+    const parts=body.split(q);$('#rd').innerHTML=parts.map(esc).join(`<mark>${esc(q)}</mark>`);const m=$('#rd mark');if(m)m.scrollIntoView({block:'center'})};
+  draw('');$('#find').oninput=e=>draw(e.target.value.trim());
+  $('#qz').onclick=()=>quizSetup('practice',[code]);$('#fc').onclick=()=>flashcards([code]);
+}
+
+/* ---------- QUIZ ---------- */
+function quizSetup(mode,chapters){
+  const titles=chapters.length?S.chapters.filter(c=>chapters.includes(c.code)).map(c=>c.title):[];
+  let n=10,secs=20;
+  shell(MODE_TITLES[mode],`<div class="card">
+    <h3>${mode==='mistakes'?'חזרה על שאלות שטעית בהן':'הגדרות המשחק'}</h3>
+    <div class="muted" style="font-size:.9rem;margin-bottom:12px">נושא: ${titles.length?esc(titles.slice(0,3).join(' · '))+(titles.length>3?` ועוד ${titles.length-3}`:''):'כל ההוראות'}</div>
+    <label>כמה שאלות? <b id="nv">${n}</b></label><input type="range" id="n" min="1" max="25" value="${n}">
+    ${mode==='timed'?`<label>שניות לכל שאלה: <b id="sv">${secs}</b></label><input type="range" id="s" min="5" max="60" step="5" value="${secs}">`:''}
+    ${mode==='exam'?'<div class="msg" style="background:var(--bg)">במצב מבחן לא תראה אם צדקת עד סוף המבחן.</div>':''}
+    ${mode==='timed'?'<div class="msg" style="background:var(--bg)">כל תשובה נכונה = 10 נקודות + עד 5 נקודות בונוס על מהירות.</div>':''}
+    <button class="btn gold block" id="go" style="margin-top:14px">🚀 התחל</button></div>`,{back:home});
+  $('#n').oninput=e=>{n=+e.target.value;$('#nv').textContent=n};
+  if($('#s'))$('#s').oninput=e=>{secs=+e.target.value;$('#sv').textContent=secs};
+  $('#go').onclick=async()=>{$('#go').disabled=true;
+    try{const r=await T('start_quiz',{p_mode:mode,p_chapters:chapters.length?chapters:null,p_n:n,p_seconds:secs});
+      if(!r.ok){toast(r.msg);$('#go').disabled=false;return}
+      playQuiz({mode,attempt:r.attempt,questions:r.questions,seconds:r.seconds})}catch(e){$('#go').disabled=false}};
+}
+
+function playQuiz(g){
+  let i=0,score=0,right=0,combo=0;
+  const step=()=>{
+    if(i>=g.questions.length)return finish();
+    const q=g.questions[i];let answered=false;
+    shell(MODE_TITLES[g.mode]||'דו-קרב',`
+      ${g.duel?'<div id="duelbar"></div>':''}
+      ${g.seconds?'<div class="timer" id="tm"><i style="width:100%"></i></div>':''}
+      <div class="card"><div class="q-head"><span>שאלה ${i+1} מתוך ${g.questions.length}</span><span class="sp"></span>${g.mode!=='exam'?`<span>⭐ ${score}</span>`:''}${combo>=3?`<span class="combo">🔥x${combo}</span>`:''}</div>
+      <span class="q-chap">${esc(q.chapter_title)}</span>
+      <div class="q-prompt">${q.kind==='tf'?'נכון או לא נכון? ':''}${esc(q.prompt)}</div>
+      <div id="opts">${q.options.map((o,k)=>`<button class="opt" data-k="${k}">${esc(o)}</button>`).join('')}</div><div id="fb"></div></div>`,
+      {back:g.duel?null:()=>{if(confirmLeave())home()}});
+    if(g.duel)drawDuelBar(g);
+    const btns=[...document.querySelectorAll('.opt')];
+    const send=async k=>{if(answered)return;answered=true;clearTimers();btns.forEach(b=>b.disabled=true);
+      if(k!=null)btns[k].classList.add('picked');
+      let r;try{r=await T('answer',{p_attempt:g.attempt,p_qid:q.id,p_chosen:k})}catch(e){answered=false;btns.forEach(b=>b.disabled=false);return}
+      if(!r.ok){toast(r.msg);i++;return step()}
+      score=r.score;right=r.right;combo=r.correct?combo+1:0;
+      if(g.mode==='exam'){i++;return setTimeout(step,250)}
+      btns[r.answer].classList.add('right');if(k!=null&&!r.correct)btns[k].classList.add('wrong');
+      $('#fb').innerHTML=`<div class="msg ${r.correct?'ok':'err'}">${r.correct?`✔ נכון! +${r.points}`:(k==null?'⏰ נגמר הזמן':'✘ לא נכון')}</div>${r.explanation?`<div class="expl">${esc(r.explanation)}</div>`:''}
+        <button class="btn block" id="nx" style="margin-top:12px">${i+1<g.questions.length?'לשאלה הבאה ←':'לסיכום ←'}</button>`;
+      $('#nx').onclick=()=>{i++;step()};
+      if(g.duel)S.timers.push(setTimeout(()=>{if($('#nx')){i++;step()}},2500));
+    };
+    btns.forEach(b=>b.onclick=()=>send(+b.dataset.k));
+    if(g.seconds){T('mark_shown',{p_attempt:g.attempt},true).catch(()=>{});const t0=Date.now(),D=g.seconds*1000;
+      S.timers.push(setInterval(()=>{const left=Math.max(0,D-(Date.now()-t0));const el=$('#tm');if(!el)return;el.querySelector('i').style.width=(100*left/D)+'%';el.classList.toggle('warn',left<D*0.3);if(left<=0)send(null)},200))}
+    if(g.duel)S.timers.push(setInterval(()=>pollDuel(g,true),2000));
+  };
+  const finish=async()=>{clearTimers();
+    if(g.duel)return duelResult(g);
+    const r=await T('finish_quiz',{p_attempt:g.attempt});showResult(r)};
+  step();
+}
+function confirmLeave(){return true}
+
+function showResult(r){
+  const pct=Math.round(100*r.right/Math.max(r.total,1));
+  const msg=pct===100?'מושלם! 🏆':pct>=80?'מצוין! 💪':pct>=60?'טוב, אפשר עוד קצת 👍':'כדאי לחזור על החומר 📖';
+  shell('סיכום',`<div class="card center"><div class="big">${r.right}/${r.total}</div><div>${msg}</div><div class="muted" style="margin-top:6px">${r.score} נקודות · ${pct}% הצלחה</div>
+    <div class="row" style="margin-top:14px;justify-content:center"><button class="btn gold" id="again">שחק שוב</button><button class="btn ghost" id="hm">לתפריט</button></div></div>
+    <div class="card"><h3>סקירת תשובות</h3>${(r.review||[]).map((q,k)=>`<div class="review"><div><span class="${q.ok?'ok':'no'}">${q.ok?'✔':'✘'}</span> <b>${k+1}.</b> ${esc(q.prompt)}</div>
+     <div style="font-size:.9rem;margin-top:4px">התשובה: <b>${esc(q.options[q.answer])}</b>${!q.ok&&q.chosen!=null?` · ענית: ${esc(q.options[q.chosen])}`:''}</div>${q.explanation?`<div class="expl" style="font-size:.85rem">${esc(q.explanation)}</div>`:''}</div>`).join('')}</div>`,{back:home});
+  $('#again').onclick=()=>pickTopics(r.mode==='mistakes'?'practice':r.mode);$('#hm').onclick=home;
+  loadStats();
+}
+
+/* ---------- FLASHCARDS ---------- */
+async function flashcards(codes){
+  shell('כרטיסיות שינון','<div class="spin"></div>',{back:home});
+  const cards=await T('flashcards_get',{p_codes:codes.length?codes:null});
+  if(!cards.length){shell('כרטיסיות שינון','<div class="empty">אין עדיין כרטיסיות לנושא שנבחר.<br>נסה "כל ההוראות" או חידון על הנושא.</div>',{back:home});return}
+  let i=0,known=0;
+  const draw=()=>{
+    if(i>=cards.length){shell('כרטיסיות שינון',`<div class="card center"><div class="big">${known}/${cards.length}</div><div>כרטיסיות שידעת</div><div class="row" style="justify-content:center;margin-top:12px"><button class="btn gold" id="re">שוב</button><button class="btn ghost" id="qz">חידון על הנושא</button></div></div>`,{back:home});
+      $('#re').onclick=()=>flashcards(codes);$('#qz').onclick=()=>quizSetup('practice',codes);return}
+    const c=cards[i];
+    shell('כרטיסיות שינון',`<div class="muted center">${i+1} / ${cards.length} · ${esc(c.chapter_title)}</div>
+     <div class="flash" id="fl"><div class="in"><div class="f">${esc(c.front)}</div><div class="b">${esc(c.back)}</div></div></div>
+     <div class="muted center" style="font-size:.85rem;margin-bottom:10px">לחץ על הכרטיס כדי להפוך</div>
+     <div class="row"><button class="btn red block" id="no">עוד לא ✘</button><button class="btn green block" id="yes">ידעתי ✔</button></div>`,{back:home});
+    $('#fl').onclick=()=>$('#fl').classList.toggle('flip');
+    $('#no').onclick=()=>{cards.push(c);i++;draw()};$('#yes').onclick=()=>{known++;i++;draw()};
+  };draw();
+}
+
+/* ---------- LEADERBOARD ---------- */
+async function leaderboard(){
+  const chs=await loadChapters();
+  const parts=[...new Map(chs.map(c=>[c.part_code,c.part_title])).entries()];
+  let period='all',part='',chap='';
+  shell('טבלת דירוג',`<div class="seg" id="per"><button data-p="day">היום</button><button data-p="week">שבוע</button><button data-p="month">חודש</button><button data-p="all" class="on">כל הזמנים</button></div>
+    <select id="pt"><option value="">🏆 דירוג כללי – כל הפרקים</option>${parts.map(([k,v])=>`<option value="${esc(k)}">פרק ${esc(k)} – ${esc(v)}</option>`).join('')}</select>
+    <select id="ch"><option value="">כל ההוראות בפרק</option></select>
+    <div class="card" id="tb"><div class="spin"></div></div>`,{back:home});
+  const fillCh=()=>{$('#ch').innerHTML=`<option value="">כל ההוראות${part?' בפרק':''}</option>`+chs.filter(c=>!c.restricted&&(!part||c.part_code===part)).map(c=>`<option value="${esc(c.code)}">${esc(c.code)} ${esc(c.title)}</option>`).join('')};
+  fillCh();
+  const load=async()=>{$('#tb').innerHTML='<div class="spin"></div>';
+    const r=await T('leaderboard',{p_period:period,p_part:part||null,p_chapter:chap||null});
+    if(!r.rows.length){$('#tb').innerHTML='<div class="empty">עדיין אין תוצאות בטווח הזה. היה הראשון! 🚀</div>';return}
+    $('#tb').innerHTML=`<div class="muted" style="font-size:.82rem;margin-bottom:6px">${r.players} משתתפים${r.mine?` · המקום שלך: <b>#${r.mine.rank}</b>`:''}</div>
+     <table class="lb"><tr><th></th><th>שם</th><th>נקודות</th><th>נכונות</th><th>דיוק</th></tr>
+     ${r.rows.map(x=>`<tr class="${x.me?'me':''}"><td><span class="rk ${x.rank<=3?'g'+x.rank:''}">${x.rank}</span></td><td>${esc(x.name)}<div class="muted" style="font-size:.72rem">${esc(x.unit||'')} · ${level(x.points).name}</div></td><td><b>${x.points}</b></td><td>${x.correct}/${x.answered}</td><td>${x.acc}%</td></tr>`).join('')}</table>`};
+  $('#per').onclick=e=>{const b=e.target.closest('button');if(!b)return;period=b.dataset.p;$('#per').querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));load()};
+  $('#pt').onchange=e=>{part=e.target.value;chap='';fillCh();load()};
+  $('#ch').onchange=e=>{chap=e.target.value;load()};
+  load();
+}
+
+/* ---------- PROGRESS ---------- */
+async function progress(){
+  shell('ההתקדמות שלי','<div class="spin"></div>',{back:home});
+  const chs=await loadChapters(true);await loadStats();const st=S.stats;
+  const open=chs.filter(c=>!c.restricted);
+  const tot=open.reduce((a,c)=>a+c.qcount,0),m=open.reduce((a,c)=>a+c.mastered,0);
+  const weak=open.filter(c=>c.qcount).sort((a,b)=>a.mastered/a.qcount-b.mastered/b.qcount).slice(0,5);
+  shell('ההתקדמות שלי',`<div class="card"><h3>שליטה כוללת בחומר</h3><div class="row"><div class="bar"><i style="width:${tot?Math.round(100*m/tot):0}%"></i></div><b>${tot?Math.round(100*m/tot):0}%</b></div>
+   <div class="muted" style="font-size:.85rem;margin-top:6px">ענית נכון על ${m} מתוך ${tot} שאלות שונות · ${st.games} משחקים · ${st.answered} תשובות</div></div>
+   <div class="card"><h3>💡 מומלץ לחזק</h3>${weak.map(c=>`<div class="ch" data-c="${esc(c.code)}"><div class="t">${esc(c.title)}</div><div class="m">${Math.round(100*c.mastered/c.qcount)}%<div class="bar"><i style="width:${Math.round(100*c.mastered/c.qcount)}%"></i></div></div></div>`).join('')}</div>
+   <div class="card"><h3>משחקים אחרונים</h3>${(st.recent||[]).map(r=>`<div class="review row"><span>${({practice:'🎯',timed:'⏱️',duel:'⚔️',mistakes:'🔁',exam:'📝'})[r.mode]}</span><span>${r.correct}/${r.total}</span><span class="sp"></span><b>${r.score} נק'</b><span class="muted" style="font-size:.75rem">${new Date(r.finished_at).toLocaleDateString('he-IL')}</span></div>`).join('')||'<div class="empty">עוד לא שיחקת</div>'}</div>`,{back:home});
+  document.querySelectorAll('.ch[data-c]').forEach(el=>el.onclick=()=>quizSetup('practice',[el.dataset.c]));
+}
+
+/* ---------- DUELS ---------- */
+function duelHome(){
+  shell('דו-קרב',`<div class="card"><h3>⚔️ אתגר חבר</h3><p class="muted" style="font-size:.9rem;margin-top:0">שניכם מקבלים את אותן שאלות, עם שעון לכל שאלה. ניקוד על דיוק ומהירות – רואים את היריב בזמן אמת.</p>
+     <button class="btn gold block" id="cr">צור דו-קרב חדש</button></div>
+     <div class="card"><h3>הצטרף עם קוד</h3><input type="text" id="code" inputmode="numeric" maxlength="6" placeholder="קוד בן 6 ספרות" dir="ltr" style="text-align:center;font-size:1.3rem;letter-spacing:.3rem"><button class="btn block" id="jn">הצטרף</button></div>`,{back:home});
+  $('#cr').onclick=()=>pickTopics('duel',duelCreate);
+  $('#jn').onclick=()=>{const c=$('#code').value.trim();if(!/^\d{6}$/.test(c))return toast('הקוד צריך להיות 6 ספרות');joinDuel(c)};
+}
+async function duelCreate(chapters){
+  let n=10,secs=15;let users=[];try{users=await T('online_users')}catch(e){}
+  shell('דו-קרב חדש',`<div class="card"><label>מספר שאלות: <b id="nv">${n}</b></label><input type="range" id="n" min="1" max="25" value="${n}">
+   <label>שניות לשאלה: <b id="sv">${secs}</b></label><input type="range" id="s" min="5" max="60" step="5" value="${secs}">
+   <label>הזמן יריב (לא חובה – אפשר גם לשתף קוד)</label><select id="inv"><option value="">— בלי הזמנה, אשתף קוד —</option>${users.map(u=>`<option value="${esc(u.username)}">${u.online?'🟢 ':''}${esc(u.name)}${u.unit?' · '+esc(u.unit):''}</option>`).join('')}</select>
+   <button class="btn gold block" id="go">צור דו-קרב</button></div>`,{back:duelHome});
+  $('#n').oninput=e=>{n=+e.target.value;$('#nv').textContent=n};$('#s').oninput=e=>{secs=+e.target.value;$('#sv').textContent=secs};
+  $('#go').onclick=async()=>{$('#go').disabled=true;const r=await T('duel_create',{p_chapters:chapters.length?chapters:null,p_n:n,p_seconds:secs,p_invite:$('#inv').value||null});
+    if(!r.ok){toast(r.msg);$('#go').disabled=false;return}duelWait(r.id,r.code)};
+}
+function duelWait(id,code){
+  shell('ממתין ליריב',`<div class="card center"><div>שתף את הקוד עם היריב:</div><div class="code-big">${esc(code)}</div>
+    <button class="btn ghost sm" id="cp">📋 העתק</button><div class="spin"></div><div class="muted">ממתין שהיריב יצטרף…</div>
+    <button class="btn red sm" id="cx" style="margin-top:14px">ביטול</button></div>`,{back:async()=>{await T('duel_cancel',{p_id:id},true);duelHome()}});
+  $('#cp').onclick=()=>{navigator.clipboard&&navigator.clipboard.writeText(code).then(()=>toast('הועתק'),()=>{})};
+  $('#cx').onclick=async()=>{await T('duel_cancel',{p_id:id},true);duelHome()};
+  S.timers.push(setInterval(async()=>{try{const s=await T('duel_state',{p_id:id},true);if(s.status==='active')duelCountdown(s);if(s.status==='cancelled')duelHome()}catch(e){}},2000));
+}
+async function joinDuel(code){
+  const r=await T('duel_join',{p_code:code});if(!r.ok)return toast(r.msg);
+  const s=await T('duel_state',{p_id:r.id});duelCountdown(s);
+}
+function duelCountdown(s){
+  clearTimers();const end=Date.now()+Math.max(0,s.start_in||0)*1000;
+  shell('דו-קרב',`<div class="card center"><div class="vs">${s.players.map((p,k)=>`${k===1?'<div class="x">VS</div>':''}<div class="p ${p.me?'me':''}">${esc(p.name)}</div>`).join('')}</div><div class="big" id="cd" style="font-size:4rem;margin-top:18px">…</div><div class="muted">${s.n} שאלות · ${s.seconds} שניות לשאלה</div></div>`);
+  S.timers.push(setInterval(async()=>{const left=Math.ceil((end-Date.now())/1000);if($('#cd'))$('#cd').textContent=left>0?left:'!';
+    if(left<=0){clearTimers();const st=await T('duel_state',{p_id:s.id});playQuiz({mode:'duel',duel:st.id,attempt:st.attempt,questions:st.questions,seconds:st.seconds,state:st})}},250));
+}
+function drawDuelBar(g){const s=g.state;if(!s||!$('#duelbar'))return;
+  $('#duelbar').innerHTML=`<div class="card" style="padding:10px"><div class="vs">${s.players.map((p,k)=>`${k===1?'<div class="x">⚔️</div>':''}<div class="p ${p.me?'me':''}"><div style="font-size:.8rem">${esc(p.name)}</div><b>${p.score}</b><div class="muted" style="font-size:.72rem">${p.answered}/${s.n} · ${p.right} נכונות</div></div>`).join('')}</div></div>`}
+async function pollDuel(g){try{g.state=await T('duel_state',{p_id:g.duel},true);drawDuelBar(g)}catch(e){}}
+async function duelResult(g){
+  shell('תוצאות הדו-קרב','<div class="spin"></div><div class="muted center">ממתין שהיריב יסיים…</div>');
+  const check=async()=>{const s=await T('duel_state',{p_id:g.duel},true);
+    const allDone=s.status==='done'||s.players.every(p=>p.finished);
+    if(!allDone)return false;clearTimers();
+    const [a,b]=s.players;const me=s.players.find(p=>p.me),op=s.players.find(p=>!p.me);
+    const res=me.score>op.score||(me.score===op.score&&me.right>op.right)?'win':(me.score===op.score&&me.right===op.right?'tie':'lose');
+    shell('תוצאות הדו-קרב',`<div class="card center"><div style="font-size:3rem">${res==='win'?'🏆':res==='tie'?'🤝':'💪'}</div><h2>${res==='win'?'ניצחת!':res==='tie'?'תיקו!':'הפעם הוא ניצח – נקמה?'}</h2>
+     <div class="vs" style="margin-top:12px">${[a,b].map((p,k)=>`${k===1?'<div class="x">VS</div>':''}<div class="p ${p.me?'me':''}"><div>${esc(p.name)}</div><b>${p.score}</b><div class="muted" style="font-size:.8rem">${p.right}/${s.n} נכונות</div></div>`).join('')}</div>
+     <div class="row" style="justify-content:center;margin-top:16px"><button class="btn gold" id="rv">סקירת תשובות</button><button class="btn ghost" id="nd">דו-קרב נוסף</button></div></div>`,{back:home});
+    $('#nd').onclick=duelHome;$('#rv').onclick=async()=>showResult(await T('finish_quiz',{p_attempt:g.attempt}));
+    loadStats();return true};
+  if(!(await check()))S.timers.push(setInterval(check,2000));
+}
+
+/* ---------- PROFILE ---------- */
+function profile(){
+  shell('הפרופיל שלי',`<div class="card"><h3>${esc(S.user.name)}</h3><div class="muted">שם משתמש: <span dir="ltr">${esc(S.user.username)}</span>${S.user.unit?' · '+esc(S.user.unit):''}</div></div>
+   <div class="card"><h3>שינוי סיסמה</h3><div id="pm"></div><label>סיסמה נוכחית</label><input type="password" id="o" dir="ltr"><label>סיסמה חדשה (8+ תווים)</label><input type="password" id="n" dir="ltr"><button class="btn block" id="ch">עדכן סיסמה</button></div>
+   <button class="btn red block" id="lo">יציאה מהמערכת</button>`,{back:home});
+  $('#ch').onclick=async()=>{const r=await T('change_password',{p_old:$('#o').value,p_new:$('#n').value});$('#pm').innerHTML=`<div class="msg ${r.ok?'ok':'err'}">${esc(r.msg)}</div>`};
+  $('#lo').onclick=async()=>{try{await rpc('logout',{p_token:S.token},true)}catch(e){}logoutLocal()};
+}
+
+/* ---------- ADMIN ---------- */
+async function admin(){
+  shell('ניהול','<div class="spin"></div>',{back:home});
+  const users=await T('admin_users');const pend=users.filter(u=>u.status==='pending');
+  const row=u=>`<div class="urow"><div class="row"><span class="dot ${u.last_seen&&Date.now()-new Date(u.last_seen)<180000?'on':''}"></span><b>${esc(u.name)}</b><span class="pill ${u.status}">${({pending:'ממתין',approved:'מאושר',blocked:'חסום'})[u.status]}</span>${u.admin?'<span class="pill">מנהל</span>':''}<span class="sp"></span><span class="muted" style="font-size:.8rem">${u.score} נק'</span></div>
+    <div class="muted" style="font-size:.8rem"><span dir="ltr">${esc(u.username)}</span>${u.unit?' · '+esc(u.unit):''} · נרשם ${new Date(u.created).toLocaleDateString('he-IL')} · ${u.games} משחקים</div>
+    ${u.admin?'':`<div class="row wrap" style="margin-top:6px">${u.status!=='approved'?`<button class="btn green sm" data-a="approved" data-u="${u.id}">✔ אשר</button>`:''}${u.status!=='blocked'?`<button class="btn red sm" data-a="blocked" data-u="${u.id}">חסום</button>`:''}<button class="btn ghost sm" data-r="${u.id}">איפוס סיסמה</button></div>`}</div>`;
+  shell('ניהול',`<div class="card"><h3>⏳ ממתינים לאישור (${pend.length})</h3>${pend.length?pend.map(row).join(''):'<div class="muted">אין בקשות ממתינות</div>'}</div>
+   <div class="card"><h3>👥 כל המשתמשים (${users.length})</h3><input type="search" id="uf" placeholder="חיפוש משתמש">${'<div id="ul"></div>'}</div>
+   <div class="card"><h3>📥 טעינת תוכן</h3><p class="muted" style="font-size:.85rem;margin-top:0">טעינה חד-פעמית של קובץ התוכן (content.json) למסד הנתונים המאובטח.</p><input type="file" id="imp" accept=".json"><div id="impm"></div></div>`,{back:home});
+  const drawU=()=>{const q=$('#uf').value.trim();$('#ul').innerHTML=users.filter(u=>!q||u.name.includes(q)||u.username.includes(q)||(u.unit||'').includes(q)).map(row).join('');bind()};
+  const bind=()=>{document.querySelectorAll('[data-a]').forEach(b=>b.onclick=async()=>{await T('admin_set_status',{p_user:b.dataset.u,p_status:b.dataset.a});toast('עודכן');admin()});
+    document.querySelectorAll('[data-r]').forEach(b=>b.onclick=()=>resetPw(b.dataset.r))};
+  $('#uf').oninput=drawU;drawU();
+  $('#imp').onchange=async e=>{const f=e.target.files[0];if(!f)return;const m=$('#impm');m.innerHTML='<div class="spin"></div>';
+    try{const d=JSON.parse(await f.text());const C=d.chapters;let last;
+      for(let k=0;k<C.length;k+=8){last=await T('admin_import',{p_data:{chapters:C.slice(k,k+8),questions:[],cards:[]}});m.innerHTML=`<div class="msg ok">נטענו ${Math.min(k+8,C.length)}/${C.length} הוראות…</div>`}
+      last=await T('admin_import',{p_data:{chapters:[],questions:d.questions,cards:d.cards}});
+      S.chapters=null;m.innerHTML=`<div class="msg ok">✔ הושלם: ${last.chapters} הוראות, ${last.questions} שאלות, ${last.cards} כרטיסיות</div>`}
+    catch(err){m.innerHTML=`<div class="msg err">הטעינה נכשלה: ${esc(err.message)}</div>`}};
+}
+function resetPw(uid){
+  const chars='ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz23456789';const a=new Uint32Array(10);crypto.getRandomValues(a);const pw=[...a].map(x=>chars[x%chars.length]).join('');
+  shell('איפוס סיסמה',`<div class="card"><p>הסיסמה החדשה למשתמש:</p><div class="code-big" style="font-size:1.6rem;letter-spacing:.1rem">${pw}</div><p class="muted" style="font-size:.85rem">מסור אותה למשתמש באופן אישי, והמלץ לו להחליף אותה בפרופיל.</p><button class="btn gold block" id="ok">אשר איפוס</button></div>`,{back:admin});
+  $('#ok').onclick=async()=>{const r=await T('admin_reset_password',{p_user:uid,p_new:pw});toast(r.msg);admin()};
+}
+
+/* ---------- BOOT ---------- */
+(async()=>{
+  if(!S.token)return viewLogin();
+  try{S.user=await T('me',{},true);home()}catch(e){viewLogin()}
+})();
+</script>
+</body>
+</html>
