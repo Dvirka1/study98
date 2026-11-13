@@ -422,7 +422,7 @@ async function duelCreate(chapters){
   let n=10,secs=15;let users=[];try{users=await T('online_users')}catch(e){}
   shell('דו-קרב חדש',`<div class="card"><label>מספר שאלות: <b id="nv">${n}</b></label><input type="range" id="n" min="1" max="25" value="${n}">
    <label>שניות לשאלה: <b id="sv">${secs}</b></label><input type="range" id="s" min="5" max="60" step="5" value="${secs}">
-   <label>הזמן יריב (לא חובה – אפשר גם לשתף קוד)</label><select id="inv"><option value="">— בלי הזמנה, אשתף קוד —</option>${users.map(u=>`<option value="${esc(u.username)}">${u.online?'🟢 ':''}${esc(u.name)}${u.unit?' · '+esc(u.unit):''}</option>`).join('')}</select>
+   <label>הזמן יריב (לא חובה – אפשר גם לשתף קוד)</label><select id="inv"><option value="">— בלי הזמנה, אשתף קוד —</option>${users.map(u=>`<option value="${esc(u.id)}">${u.online?'🟢 ':''}${esc(u.name)}${u.unit?' · '+esc(u.unit):''}</option>`).join('')}</select>
    <button class="btn gold block" id="go">צור דו-קרב</button></div>`,{back:duelHome});
   $('#n').oninput=e=>{n=+e.target.value;$('#nv').textContent=n};$('#s').oninput=e=>{secs=+e.target.value;$('#sv').textContent=secs};
   $('#go').onclick=async()=>{$('#go').disabled=true;const r=await T('duel_create',{p_chapters:chapters.length?chapters:null,p_n:n,p_seconds:secs,p_invite:$('#inv').value||null});
@@ -502,6 +502,7 @@ function resetPw(uid){
 
 /* ---------- BOOT ---------- */
 (async()=>{
+  if(window.top!==window.self){document.body.textContent='';return}
   if(!S.token)return viewLogin();
   try{S.user=await T('me',{},true);home()}catch(e){viewLogin()}
 })();
